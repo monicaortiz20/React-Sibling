@@ -1,0 +1,22 @@
+.nav-bar{
+    display: flex;
+    justify-content:space-evenly;
+    padding: 20px;
+    background-color: #A4C3B2;
+
+    &>*{
+        color: white;
+    }
+
+    & >a {
+        text-decoration: none;
+
+        &:hover{
+            color: #6B9080;
+        }
+    }
+
+    &>span {
+        font-weight:bolder;
+    }
+}
