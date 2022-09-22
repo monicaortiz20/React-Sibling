@@ -5,29 +5,32 @@ import {BrowserRouter} from 'react-router-dom';
 import 'normalize.css'; //evita estilos por defecto del navegador
 
 import Header from './components/Header/Header';
-import Home from './components/Home/Home'
+import Main from './components/Main/Main'
 
 
 
 function App() {
 
-  const [email, setEmail] = useState("Mónica"); //setUser, nodifica el estado de user
+  const [name, setName] = useState("Mónica");
+  const [email, setEmail] = useState("Mónica");
+  const [age, setAge] = useState("29"); 
+  const [url, setUrl] = useState("Mónica");  //setUser, nodifica el estado de user
 
-  //cambiar estado del componente con login
-  const login = (email) => {
-    setEmail(email); //aquí le decimos que user = name; user es la variable de arrina
-  };//name = Mónica, entonces user = Mónica
 
-  const logout= () => {
-    setEmail(""); //aquí le decimos que el user está vacío
+  const takeData = (name, email, age, url) => {
+    setName(name);
+    setEmail(email);
+    setAge(age);
+    setUrl(url)
   }
 
 //pasamos las funciones creadas al provider, facilita un objeto a quien lo vaya a 'consumir':
-
   const data = {
+    name,
     email,
-    login,
-    logout
+    age, 
+    url, 
+    takeData
   }
 
   return (
@@ -35,7 +38,7 @@ function App() {
       <BrowserRouter>
       <userContext.Provider value={data}>
         <Header/>
-        <Home/>
+        <Main/>
         </userContext.Provider>
       </BrowserRouter>
     </div>
